@@ -1,0 +1,46 @@
+@charset "utf-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul,
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: #333;
+}
+.flex-box {
+  width: 90%;
+  max-width: 800px;
+  min-width: 300px;
+  display: flex;
+  /* background-color: #ddd; */
+  margin: auto;
+  gap: 2%;
+  flex-wrap: wrap;
+}
+.flex-box li {
+  width: calc((100% - 8%) / 5);
+  text-align: center;
+  padding: 10px;
+}
+.flex-box img {
+  display: block;
+  width: 100%;
+}
+/* 미디어쿼리 */
+/* 768 */
+@media screen and (max-width: 768px) {
+  .flex-box li {
+    width: calc((100% - 4%) / 3);
+  }
+}
+/* 390 */
+@media screen and (max-width: 390px) {
+  .flex-box li {
+    width: 100%;
+  }
+}

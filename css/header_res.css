@@ -1,0 +1,89 @@
+@charset "utf-8";
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ul,
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: #333;
+}
+.header{
+    width: 100%;
+    height: 80px;
+    background-color: #fff;
+}
+.header-container{
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    background-color: #ddd;
+    justify-content: space-between;
+}
+.logo{
+    font-size: 1.8rem;
+    font-weight: bold;
+    padding: 0 30px;
+    /* background-color: #fff; */
+}
+
+/*  nav  */
+.nav-menu{
+    display: flex;
+    justify-content: space-between;
+    width: 450px;
+}
+
+/* auth */
+.auth-icons{
+    display: flex;
+    align-items: center;
+    width: 230px;
+    gap: 20px;
+}
+.auth-icon{
+    display: flex;
+    width: calc(100% / 2);
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    
+}
+.icon{
+    width: 16px;
+}
+.signup-icon{
+    background-color: rgb(0, 102, 255);
+    color: #fff;
+    border-radius: 5px;
+    padding: 5px;
+}
+.login-icon{
+    border: 2px solid  rgb(0, 102, 255);
+    color:  rgb(0, 102, 255);
+    border-radius: 5px;
+    padding: 3px;
+}
+
+/* 햄버거메뉴 */
+.hamburger{
+    /* display: flex; */
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    border: none;
+    background: none;
+    gap:5px;
+}
+.hamburger span{
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    border-radius: 2px;
+}
