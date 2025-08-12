@@ -1,89 +1,195 @@
 @charset "utf-8";
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 ul,
-li{
-    list-style: none;
+li {
+  list-style: none;
 }
-a{
-    text-decoration: none;
-    color: #333;
+a {
+  text-decoration: none;
+  color: #333;
 }
-.header{
-    width: 100%;
-    height: 80px;
-    background-color: #fff;
+.header {
+  width: 100%;
+  height: 80px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px #ddd;
 }
-.header-container{
-    width: 100%;
-    max-width: 1200px;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    background-color: #ddd;
-    justify-content: space-between;
+.header-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  /* background-color: #ddd; */
+  justify-content: space-between;
 }
-.logo{
-    font-size: 1.8rem;
-    font-weight: bold;
-    padding: 0 30px;
-    /* background-color: #fff; */
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  padding: 0 30px;
+  line-height: 80px;
+  /* background-color: #fff; */
 }
 
 /*  nav  */
-.nav-menu{
-    display: flex;
-    justify-content: space-between;
-    width: 450px;
+.nav-menu {
+  display: flex;
+  justify-content: space-between;
+  width: 450px;
+}
+.nav-menu a {
+  position: relative;
+  color: #1d1d1d;
+  font-size: 18px;
+  line-height: 80px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+.nav-menu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  opacity: 0;
+  height: 1.5px;
+  background-color: #ccc;
+  transition: all 0.3s ease;
+}
+.nav-menu a:hover {
+  color: #ccc;
+}
+.nav-menu a:hover::after {
+  opacity: 1;
 }
 
 /* auth */
-.auth-icons{
-    display: flex;
-    align-items: center;
-    width: 230px;
-    gap: 20px;
+.auth-icons {
+  display: flex;
+  align-items: center;
+  width: 230px;
+  gap: 20px;
+  min-width: 200px;
 }
-.auth-icon{
-    display: flex;
-    width: calc(100% / 2);
-    gap: 10px;
-    align-items: center;
-    justify-content: center;
-    
+.auth-icons a:hover {
+  filter: brightness(80%);
 }
-.icon{
-    width: 16px;
+.auth-icons a {
+  font-size: 15px;
+  white-space: nowrap;
 }
-.signup-icon{
-    background-color: rgb(0, 102, 255);
-    color: #fff;
-    border-radius: 5px;
-    padding: 5px;
+.auth-icon {
+  display: flex;
+  width: calc(100% / 2);
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
 }
-.login-icon{
-    border: 2px solid  rgb(0, 102, 255);
-    color:  rgb(0, 102, 255);
-    border-radius: 5px;
-    padding: 3px;
+.icon {
+  width: 16px;
+}
+.signup-icon {
+  background-color: rgb(0, 102, 255);
+  color: #fff;
+  border-radius: 5px;
+  padding: 5px;
+}
+.login-icon {
+  border: 2px solid rgb(0, 102, 255);
+  color: rgb(0, 102, 255);
+  border-radius: 5px;
+  padding: 3px;
 }
 
 /* 햄버거메뉴 */
-.hamburger{
-    /* display: flex; */
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    border: none;
-    background: none;
-    gap:5px;
+.hamburger {
+  /* display: flex; */
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  border: none;
+  background: none;
+  gap: 5px;
+  padding: 0 30px;
 }
-.hamburger span{
-    width: 25px;
-    height: 3px;
-    background-color: #333;
-    border-radius: 2px;
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  border-radius: 2px;
+}
+/*  */
+/*  */
+/* 모바일 일때 사이드 메뉴 */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: -300px;
+  width: 300px;
+  height: 100vh;
+  padding: 80px 30px;
+  background-color: #fff;
+  z-index: 9999;
+  transition: all 0.3s ease;
+}
+/* ****************중요***************** (active)*/
+.mobile-menu.active {
+  left: 0;
+}
+.mobile-menu li {
+  border-bottom: 1px solid #ddd;
+}
+.mobile-menu li:last-child {
+  border: none;
+}
+.mobile-menu li a {
+  display: block;
+  padding: 1.5rem 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.mobile-menu li a:hover {
+  color: #ccc;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+/*  */
+/* 반응형 */
+@media screen and (max-width: 768px) {
+  .nav-menu,
+  .auth-icons {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+  }
+  /* 햄버거 메뉴 애니메이션 */
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
 }
